@@ -1,0 +1,21 @@
+.endCard{
+    padding: 0px 0px 45px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.line{
+    border: 3px solid var(--outline-color);
+    width: 64px;
+    height: 4px;
+}
+.endCard p{
+    color: #5A4136;
+    margin:0px;
+}
+.endCard .icon{
+    margin-top: 20px;
+    padding-bottom: 8px;
+}

@@ -1,0 +1,65 @@
+.card {
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #e0e3e5;
+  border-radius: 8px;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.title {
+  margin: 0px 0px 5px;
+  color: var(--primary-color);
+}
+.companyDetails {
+  color: #5a4136;
+}
+a {
+  display: block;
+  padding: 8px 16px;
+  height: 34px;
+  width: 74px;
+  text-decoration: none;
+  letter-spacing: 0.28px;
+  align-content:center;
+  font-weight: bold;
+  color: var(--primary-color);
+  background-color: #ffffff;
+  cursor: pointer;
+  border: 1px solid var(--outline-color);
+  border-radius: 8px;
+}
+a:hover {
+  color: #ffffff;
+  background-color: #ff6600;
+  border: none;
+}
+
+.companyDetails {
+  display: flex;
+  gap: 8px;
+}
+.companyDetails span:not(:last-child)::after {
+  content: "•";
+  margin-left: 8px;
+}
+@media only screen and (max-width: 480px) {
+  .card {
+    flex-direction: column;
+    align-items: start;
+  }
+  .action {
+    padding-top: 24px;
+    width: 100%; /*take available space of parent which is card*/
+  }
+  a{
+            width: 100%;/*take available space of action parent*/
+            height: 48px;
+        }
+}

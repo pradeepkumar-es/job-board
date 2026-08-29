@@ -1,0 +1,10 @@
+*{
+  box-sizing: border-box;
+}
+:root{
+  --outline-color:#E3BFB1;
+  --primary-color:#191C1E;
+}
+body{
+  font-family:"Inter", sans-serif;
+}

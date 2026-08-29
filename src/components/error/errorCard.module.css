@@ -1,0 +1,25 @@
+.errorCard{
+    padding: 108px 32px;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    align-items:center;
+}
+.errorCard p{
+    color: #5A4136;
+    padding-bottom: 24px;
+    font-size: larger;
+}
+.errorCard button{
+    width: 140px;
+    height: 43px;
+    padding: 12px 24px;
+    color:#ffffff;
+    background-color: #FF6600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: large;
+    /* align-content:center; */
+    /* text-align: center; */
+}

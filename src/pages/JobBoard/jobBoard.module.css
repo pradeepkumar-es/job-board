@@ -1,0 +1,13 @@
+.jobPagination{
+    text-align: center;
+    padding: 24px;
+}
+.jobPagination button{
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid var(--outline-color);
+    height: 42px;
+    width: 193px;
+    padding: 12px 32px;
+    border-radius: 4px;
+}

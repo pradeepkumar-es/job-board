@@ -1,0 +1,54 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.loaderCard {
+  width: 100%;
+  display: flex;
+  gap: 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--outline-color);
+}
+.main {
+  width: 100vw;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+.biggerLine {
+  width: 90%;
+  height: 28px;
+}
+.shortLine {
+  /* width:190px; */
+  width: 60%;
+  height: 20px;
+}
+.actionLine {
+  width: 74px;
+  height: 28px;
+}
+.biggerLine,
+.shortLine,
+.actionLine {
+  background: linear-gradient(90deg, #f1f5f9 0%, #ffffff 50%, #f1f5f9 100%);
+  /*Make the background twice as wide as the element.
+   * This gives the gradient enough extra space to move
+   * completely across the element.*/
+  background-size: 200% 100%;
+  /*why reverse below? The background moves one way, while the visible content of that background appears to move the opposite way. */
+  animation: load 1.5s linear 0s infinite reverse; 
+}
+@keyframes load {
+  0% {
+    background-position: -200% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
