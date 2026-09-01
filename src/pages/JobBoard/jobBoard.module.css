@@ -1,4 +1,6 @@
-
+.jobBoard{
+    margin:0px 90px;
+}
 .jobPagination{
     text-align: center;
     padding: 24px;
@@ -11,4 +13,9 @@
     width: 193px;
     padding: 12px 32px;
     border-radius: 4px;
+}
+@media only screen and (max-width:768px){
+    .jobBoard{
+        margin: 0px 16px;
+    }
 }
