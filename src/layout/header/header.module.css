@@ -9,7 +9,10 @@
 .brandWrapper h1, .brandWrapper p{
     margin: 0;
 }
-
+.refresh{
+    background-color: white;
+    border: none;
+}
 .refresh img{
     cursor: pointer;
 }

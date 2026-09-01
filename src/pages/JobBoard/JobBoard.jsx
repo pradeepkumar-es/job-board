@@ -6,6 +6,7 @@ import { EndCard } from "../../components/endCard/EndCard";
 import { ErrorCard } from "../../components/error/errorCard";
 import Styles from "./jobBoard.module.css";
 import { JobToolbar } from "../../components/jobToolbar/JobToolbar";
+import { EmptyCard } from "../../components/emptyCard/EmptyCard";
 export function JobBoard({
   jobData,
   error,
@@ -15,15 +16,12 @@ export function JobBoard({
   fetchJobs,
 }) {
   const [visibleJobCount, setVisibleJobCount] = useState(5);
+  const [searchInput, setSearchInput] = useState("");
   const [sortOrder, setSortOrder] = useState("newToOld"); //newToOld is default
   const toShowJobs = filteredJobs.slice(0, visibleJobCount);
   const isEndState = toShowJobs.length === filteredJobs.length;
   function handleLoadMore() {
     setVisibleJobCount((pre) => Math.min(pre + 5, jobData.length));
-  }
-  if (error) {
-    //if error comes, override the preloading;
-    return <ErrorCard err={error} reFetch={fetchJobs} />;
   }
 
   function handleJobSearch(e) {
@@ -33,6 +31,7 @@ export function JobBoard({
       return title.includes(searchTerm);
     });
     setFilteredJobs(filtered);
+    setSearchInput(searchTerm);
   }
 
   function handleSort(e) {
@@ -47,7 +46,14 @@ export function JobBoard({
       return;
     }
   }
-
+  function clearFilter() {
+    setSearchInput(""); //make empty search bar
+    setFilteredJobs(jobData) //reset data as it is
+  }
+  if (error) {
+    //if error comes, override the preloading;
+    return <ErrorCard err={error} reFetch={fetchJobs} />;
+  }
   return (
     <div className={Styles.jobBoard}>
       {jobData.length < 1 || isLoading ? (
@@ -58,17 +64,24 @@ export function JobBoard({
             handleJobSearch={handleJobSearch}
             handleSort={handleSort}
             sortOrder={sortOrder}
+            searchInput = {searchInput}
           />
-          <JobList jobData={toShowJobs} />
-          <div className={Styles.jobPagination}>
-            <p>
-              Showing {toShowJobs.length} of {filteredJobs.length} jobs
-            </p>
-            <button onClick={handleLoadMore} disabled={isEndState}>
-              Load More
-            </button>
-          </div>
-          {isEndState && <EndCard />}
+          {filteredJobs.length < 1 && !isLoading ? (
+            <EmptyCard clearFilter={clearFilter} />
+          ) : (
+            <>
+              <JobList jobData={toShowJobs} />
+              <div className={Styles.jobPagination}>
+                <p>
+                  Showing {toShowJobs.length} of {filteredJobs.length} jobs
+                </p>
+                <button onClick={handleLoadMore} disabled={isEndState}>
+                  Load More
+                </button>
+              </div>
+              {isEndState && <EndCard />}
+            </>
+          )}
         </>
       )}
     </div>

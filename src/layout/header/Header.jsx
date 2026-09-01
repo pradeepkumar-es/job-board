@@ -7,9 +7,9 @@ export function Header({reload}){
                 <h1>Job Board</h1>
                 <p>Latest jobs from Hacker News</p>
             </div>
-            <div className={Styles.refresh}>
+            <button className={Styles.refresh}>
                 <img onClick={()=>reload()} src={resetIcon} alt="Refresh Icon" />
-            </div>
+            </button>
         </div>
     )
 }

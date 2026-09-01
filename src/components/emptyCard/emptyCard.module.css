@@ -1,0 +1,35 @@
+.emptyCard{
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.emptyCard .icon{
+    margin-bottom:16px;
+}
+.emptyCard>h3{
+    margin: 0px 0px 4px;
+}
+.emptyCard>p{
+    margin: 0px 0px 24px;
+    padding: 0px 9.81px;
+    color: #5A4136;
+    text-align: center;
+}
+.emptyCard  > button{
+    color: #1E293B;
+    font-weight: bold;
+    cursor: pointer;
+    height: 34px;
+    width: 132.94px;
+    padding: 8px 24px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    background-color: white;
+    transition:transform .25s ease, border-color .25s ease;
+}
+.emptyCard > button:hover{
+    transform: translateY(-6px);
+    border-color: var(--outline-color);
+}
