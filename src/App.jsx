@@ -1,10 +1,10 @@
 import { JobBoard } from './pages/JobBoard/JobBoard';
-import { ErrorCard } from './components/error/errorCard';
+import { JobToolbar } from './components/jobToolbar/JobToolbar';
 function App() {
   return (
     <>
     <JobBoard/>
-    {/* <ErrorCard/> */}
+    {/* <JobToolbar/> */}
     </>
   )
 }
