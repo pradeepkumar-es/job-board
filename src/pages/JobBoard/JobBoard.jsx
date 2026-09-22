@@ -3,7 +3,7 @@ import { JobList } from "../../components/JobList/JobList";
 import { Preloader } from "../../components/Preloader/Preloader";
 import { useState } from "react";
 import { EndCard } from "../../components/endCard/EndCard";
-import { ErrorCard } from "../../components/error/errorCard";
+import { ErrorCard } from "../../components/error/ErrorCard";
 import Styles from "./jobBoard.module.css";
 import { JobToolbar } from "../../components/jobToolbar/JobToolbar";
 import { EmptyCard } from "../../components/emptyCard/EmptyCard";
