@@ -33,6 +33,9 @@
   border: 1px solid var(--outline-color);
   border-radius: 6px;
 }
+.jobToolbar .jobSort select, .jobToolbar .jobSort option{
+  cursor: pointer;
+}
 @media only screen and (max-width: 480px) {
   .jobToolbar {
     flex-direction: column;

@@ -3,7 +3,6 @@ import { hackerNewsApi } from "./services/hackerNewsApi";
 import { JobBoard } from "./pages/JobBoard/JobBoard";
 import { Header } from "./layout/header/Header";
 import { Footer } from "./layout/footer/Footer";
-// import { EmptyCard } from "./components/emptyCard/EmptyCard";
 function App() {
   const [jobData, setJobData] = useState([]);
   const [error, setError] = useState("");
@@ -48,7 +47,6 @@ function App() {
         setFilteredJobs={setFilteredJobs}
         fetchJobs={fetchJobs}
       />
-      {/* <EmptyCard/> */}
       <Footer />
     </>
   );
