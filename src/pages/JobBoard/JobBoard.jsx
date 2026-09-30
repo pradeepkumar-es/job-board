@@ -22,7 +22,7 @@ export function JobBoard() {
   const toShowJobs = filteredJobs.slice(0, visibleJobCount);
   const isEndState = toShowJobs.length === filteredJobs.length;
   function handleLoadMore() {
-    setVisibleJobCount((pre) => Math.min(pre + 5, jobData.length));
+    setVisibleJobCount((pre) => Math.min(pre + 5, filteredJobs.length));
   }
 
   function handleJobSearch(e) {
@@ -38,10 +38,10 @@ export function JobBoard() {
   function handleSort(e) {
     const selectedOrder = e.target.value;
     if (selectedOrder === "oldToNew" && sortOrder === "newToOld") {
-      setFilteredJobs(filteredJobs.reverse());
+      setFilteredJobs(pre=>[...pre].reverse());
       setSortOrder(selectedOrder);
     } else if (selectedOrder === "newToOld" && sortOrder === "oldToNew") {
-      setFilteredJobs(filteredJobs.reverse());
+      setFilteredJobs(pre => [...pre].reverse());
       setSortOrder(selectedOrder);
     } else {
       return;
