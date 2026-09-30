@@ -1,5 +1,5 @@
 import { JobList } from "../../components/JobList/JobList";
-// import { hackerNewsApi } from "../../services/hackerNewsApi";
+import { useJobContext } from "../../hooks/useJobContext";
 import { Preloader } from "../../components/Preloader/Preloader";
 import { useState } from "react";
 import { EndCard } from "../../components/endCard/EndCard";
@@ -7,14 +7,15 @@ import { ErrorCard } from "../../components/error/ErrorCard";
 import Styles from "./jobBoard.module.css";
 import { JobToolbar } from "../../components/jobToolbar/JobToolbar";
 import { EmptyCard } from "../../components/emptyCard/EmptyCard";
-export function JobBoard({
-  jobData,
-  error,
-  isLoading,
-  filteredJobs,
-  setFilteredJobs,
-  fetchJobs,
-}) {
+export function JobBoard() {
+  const {
+    jobData,
+    error,
+    isLoading,
+    filteredJobs,
+    setFilteredJobs,
+    fetchJobs,
+  } = useJobContext();
   const [visibleJobCount, setVisibleJobCount] = useState(5);
   const [searchInput, setSearchInput] = useState("");
   const [sortOrder, setSortOrder] = useState("newToOld"); //newToOld is default
@@ -48,7 +49,7 @@ export function JobBoard({
   }
   function clearFilter() {
     setSearchInput(""); //make empty search bar
-    setFilteredJobs(jobData) //reset data as it is
+    setFilteredJobs(jobData); //reset data as it is
   }
   if (error) {
     //if error comes, override the preloading;
@@ -64,7 +65,7 @@ export function JobBoard({
             handleJobSearch={handleJobSearch}
             handleSort={handleSort}
             sortOrder={sortOrder}
-            searchInput = {searchInput}
+            searchInput={searchInput}
           />
           {filteredJobs.length < 1 && !isLoading ? (
             <EmptyCard clearFilter={clearFilter} />

@@ -1,10 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import "./styles/globals.css";
-import App from './App.jsx'
-
-createRoot(document.getElementById('root')).render(
+import App from "./App.jsx";
+import { JobProvider } from "./context/JobContext.jsx";
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <JobProvider>
+      <App />
+    </JobProvider>
   </StrictMode>,
-)
+);

@@ -1,6 +1,8 @@
 import Styles from "./header.module.css";
 import resetIcon from "../../assets/resetIcon.png"
-export function Header({reload}){
+import { useJobContext } from "../../hooks/useJobContext";
+export function Header(){
+    const {fetchJobs} = useJobContext();
     return (
         <div className={Styles.header}>
             <div className={Styles.brandWrapper}>
@@ -8,7 +10,7 @@ export function Header({reload}){
                 <p>Latest jobs from Hacker News</p>
             </div>
             <button className={Styles.refresh} title="Refresh Jobs">
-                <img onClick={()=>reload()} src={resetIcon} alt="Refresh Icon" />
+                <img onClick={()=>fetchJobs()} src={resetIcon} alt="Refresh Icon" />
             </button>
         </div>
     )
